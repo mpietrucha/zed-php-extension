@@ -3,8 +3,11 @@ name = "PHP"
 description = "PHP support."
 version = "0.2.8"
 schema_version = 1
-authors = ["Piotr Osiewicz <piotr@zed.dev>"]
-repository = "https://github.com/zed-extensions/php"
+authors = [
+    "Piotr Osiewicz <piotr@zed.dev>",
+    "Michał Pietrucha <mpietrucha50@gmail.com>",
+]
+repository = "https://github.com/mpietrucha/zed-php-extension"
 
 [language_servers.intelephense]
 name = "Intelephense"

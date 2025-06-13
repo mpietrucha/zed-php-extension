@@ -47,9 +47,11 @@
 (relative_scope) @variable.builtin
 
 ((name) @constant
- (#match? @constant "^_?[A-Z][A-Z\\d_]+$"))
-((name) @constant.builtin
- (#match? @constant.builtin "^__[A-Z][A-Z\d_]+__$"))
+ (#match? @constant "^__[^_]+__$"))
+
+((name) @constant
+ (#match? @constant "^[A-Z_][A-Z0-9_]*$"))
+
 
 ((name) @constructor
  (#match? @constructor "^[A-Z]"))
@@ -57,7 +59,13 @@
 ((name) @variable.builtin
  (#eq? @variable.builtin "this"))
 
+((name) @null
+ (#eq? @null "null"))
+
 (variable_name) @variable
+
+(variable_name (name) @variable
+ (#match? @variable "^[A-Za-z_][A-Za-z0-9_]"))
 
 ; Basic tokens
 [
@@ -68,8 +76,8 @@
   (heredoc_body)
   (nowdoc_body)
 ] @string
-(boolean) @constant.builtin
-(null) @constant.builtin
+(boolean) @boolean
+(null) @null
 (integer) @number
 (float) @number
 (comment) @comment
@@ -141,3 +149,5 @@
 "while" @keyword
 "xor" @keyword
 "yield" @keyword
+"self" @keyword
+"parent" @keyword
