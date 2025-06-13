@@ -59,9 +59,6 @@
 ((name) @variable.builtin
  (#eq? @variable.builtin "this"))
 
-((name) @null
- (#eq? @null "null"))
-
 (variable_name) @variable
 
 (variable_name (name) @variable
